@@ -5,9 +5,9 @@ const logos = Array.from({ length: 9 }, (_, i) => i + 1);
 <section class="py-4 md:py-6">
   <div class="max-w-7xl mx-auto px-4">
     <p class="text-xs text-text-muted text-center mb-3">Наши партнёры</p>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+    <div class="flex flex-wrap justify-center gap-3">
       {logos.map((n) => (
-        <div class="bg-white rounded-sm aspect-video flex items-center justify-center text-text-muted text-xs border border-gray-300">
+        <div class="w-[calc(50%-6px)] sm:w-[calc(33.333%-8px)] md:w-[calc(25%-9px)] lg:w-[calc(20%-10px)] max-w-[160px] bg-white rounded-sm aspect-video flex items-center justify-center text-text-muted text-xs border border-gray-300">
           {n}
         </div>
       ))}
