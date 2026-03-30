@@ -1,7 +1,16 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Montserrat Fallback";
+  src: local("Arial");
+  ascent-override: 84.5%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 112.5%;
+}
+
 @theme {
-  --font-sans: "Montserrat", Arial, sans-serif;
+  --font-sans: "Montserrat Variable", "Montserrat Fallback", Arial, sans-serif;
 
   --color-primary: #F36000;
   --color-primary-hover: #E55A1F;

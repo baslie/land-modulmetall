@@ -29,7 +29,6 @@
           name="name"
           placeholder="Имя"
           aria-label="Имя"
-          required
           class="form-field h-[44px]"
         />
         <input
@@ -47,12 +46,27 @@
           rows="2"
           class="form-field min-h-[80px] py-3 resize-y"
         ></textarea>
-        <button
-          type="submit"
-          class="w-full h-[44px] bg-primary text-white font-semibold text-base rounded-btn-lg hover:bg-primary-hover transition-colors duration-300 cursor-pointer"
-        >
-          Оставить заявку
-        </button>
+        <label class="flex items-start gap-2 cursor-pointer text-xs text-text-secondary leading-snug">
+          <input
+            type="checkbox"
+            name="consent"
+            required
+            class="mt-0.5 shrink-0 accent-primary"
+          />
+          <span>
+            Я подтверждаю ознакомление с условиями
+            <a href="/privacy" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline">Согласия на обработку персональных данных</a>
+            пользователя сайта и даю согласие на обработку моих персональных данных на указанных в нем порядке и условиях.
+          </span>
+        </label>
+        <div class="flex justify-center">
+          <button
+            type="submit"
+            class="h-[48px] px-12 bg-primary text-white font-semibold text-base rounded-btn-lg hover:bg-primary-hover transition-colors duration-300 cursor-pointer"
+          >
+            Оставить заявку
+          </button>
+        </div>
       </form>
     </div>
   </div>
