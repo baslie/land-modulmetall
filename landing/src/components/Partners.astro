@@ -34,7 +34,7 @@ const advantages = [
 
 <section class="py-6 md:py-8">
   <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-[30px] leading-[1.2] font-bold text-text-primary text-center mb-5 md:mb-6">
+    <h2 class="type-h2 text-text-primary text-center mb-5 md:mb-6">
       Почему 3&nbsp;000+ клиентов заказывают кровлю у&nbsp;нас
     </h2>
 
@@ -91,12 +91,12 @@ const advantages = [
 
             <div class="min-w-0">
               {item.badge && (
-                <p class="mb-1 inline-flex rounded-full bg-primary/15 px-2 py-0.5 text-[11px] font-medium leading-none text-primary">
+                <p class="mb-1 inline-flex rounded-full bg-primary/15 px-2 py-0.5 type-caption font-medium leading-none text-primary">
                   {item.badge}
                 </p>
               )}
-              <p class="font-semibold text-[20px] leading-[1.2] text-text-primary mb-2 tracking-[-0.01em]">{item.title}</p>
-              <p class="text-base leading-[1.45] text-text-secondary">{item.desc}</p>
+              <p class="type-h3 text-text-primary mb-2 tracking-[-0.01em]">{item.title}</p>
+              <p class="type-body text-text-secondary">{item.desc}</p>
             </div>
           </div>
         </article>
@@ -104,10 +104,10 @@ const advantages = [
     </div>
 
     <!-- Логотипы партнёров -->
-    <p class="text-xs text-text-muted text-center mb-3">Официальный дилер</p>
+    <p class="type-caption text-text-muted text-center mb-3">Официальный дилер</p>
     <div class="flex flex-wrap justify-center gap-3">
       {logos.map((n) => (
-        <div class="w-[calc(50%-6px)] sm:w-[calc(33.333%-8px)] md:w-[calc(25%-9px)] lg:w-[calc(20%-10px)] max-w-[160px] bg-white rounded-sm aspect-video flex items-center justify-center text-text-muted text-xs border border-gray-300">
+        <div class="w-[calc(50%-6px)] sm:w-[calc(33.333%-8px)] md:w-[calc(25%-9px)] lg:w-[calc(20%-10px)] max-w-[160px] bg-white rounded-sm aspect-video flex items-center justify-center text-text-muted type-caption border border-gray-300">
           {n}
         </div>
       ))}
