@@ -1,10 +1,33 @@
 ---
 const logos = Array.from({ length: 9 }, (_, i) => i + 1);
+
+const advantages = [
+  { title: "Цена не изменится", desc: "Бронируете в\u00a0апреле\u00a0\u2014 платите по\u00a0апрелю даже в\u00a0июле" },
+  { title: "Всё в одном заказе", desc: "Черепица, водосток, мембрана, крепёж\u00a0\u2014 один договор" },
+  { title: "Без пересорта", desc: "Рассчитываем раскрой\u00a0\u2014 не\u00a0переплачиваете за\u00a0лишний материал" },
+  { title: "В наличии на складе", desc: "Готовые комплекты, не\u00a0надо ждать поставку" },
+  { title: "Доставка по всей России", desc: "от\u00a0Калининграда до\u00a0вашего объекта" },
+];
 ---
 
-<section class="py-4 md:py-6">
+<section class="py-6 md:py-8">
   <div class="max-w-7xl mx-auto px-4">
-    <p class="text-xs text-text-muted text-center mb-3">Наши партнёры</p>
+    <h2 class="text-lg md:text-xl font-bold text-text-primary text-center mb-4">
+      Почему 3&nbsp;000+ клиентов заказывают кровлю у&nbsp;нас
+    </h2>
+
+    <!-- Карточки преимуществ -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
+      {advantages.map((item) => (
+        <div class="border border-gray-300 rounded-md p-4">
+          <p class="font-semibold text-sm text-text-primary mb-1">{item.title}</p>
+          <p class="text-xs text-text-secondary leading-snug">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Логотипы партнёров -->
+    <p class="text-xs text-text-muted text-center mb-3">Официальный дилер</p>
     <div class="flex flex-wrap justify-center gap-3">
       {logos.map((n) => (
         <div class="w-[calc(50%-6px)] sm:w-[calc(33.333%-8px)] md:w-[calc(25%-9px)] lg:w-[calc(20%-10px)] max-w-[160px] bg-white rounded-sm aspect-video flex items-center justify-center text-text-muted text-xs border border-gray-300">
