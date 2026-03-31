@@ -2,28 +2,104 @@
 const logos = Array.from({ length: 9 }, (_, i) => i + 1);
 
 const advantages = [
-  { title: "Страховка от инфляции", desc: "Фиксируем цену сегодняшним днем." },
-  { title: "Всё в одном заказе", desc: "Черепица, водосток, мембрана, крепёж\u00a0\u2014 один договор" },
-  { title: "Без пересорта", desc: "Рассчитываем раскрой\u00a0\u2014 не\u00a0переплачиваете за\u00a0лишний материал" },
-  { title: "В наличии на складе", desc: "Готовые комплекты, не\u00a0надо ждать поставку" },
-  { title: "Ликвидный склад", desc: "В наличии не просто металлочерепица, а готовые комплекты «крыша под ключ»." },
-  { title: "Экспертная комплектация", desc: "Мы работаем с 2008 года." },
+  {
+    title: "Всё в одном заказе",
+    desc: "Черепица, водосток, мембрана и крепёж в одном договоре и с одной ответственностью.",
+    icon: "package",
+    featured: true,
+    badge: "Топ-преимущество",
+  },
+  {
+    title: "Фиксация цены",
+    desc: "Закрепляем стоимость на момент расчёта, чтобы инфляция не увеличила смету.",
+    icon: "shield",
+  },
+  {
+    title: "Точный раскрой",
+    desc: "Считаем листы и доборные элементы под ваш проект без лишних остатков.",
+    icon: "cut",
+  },
+  {
+    title: "Готовые комплекты на складе",
+    desc: "Основные позиции держим в наличии, чтобы вы не ждали долгую поставку.",
+    icon: "warehouse",
+  },
+  {
+    title: "Экспертная комплектация с 2008 года",
+    desc: "Подбираем совместимые материалы и узлы, чтобы кровля служила дольше.",
+    icon: "expert",
+  },
 ];
 ---
 
 <section class="py-6 md:py-8">
   <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-lg md:text-xl font-bold text-text-primary text-center mb-4">
+    <h2 class="text-[30px] leading-[1.2] font-bold text-text-primary text-center mb-5 md:mb-6">
       Почему 3&nbsp;000+ клиентов заказывают кровлю у&nbsp;нас
     </h2>
 
     <!-- Карточки преимуществ -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-6">
       {advantages.map((item) => (
-        <div class="border border-gray-300 rounded-md p-4">
-          <p class="font-semibold text-sm text-text-primary mb-1">{item.title}</p>
-          <p class="text-xs text-text-secondary leading-snug">{item.desc}</p>
-        </div>
+        <article
+          class:list={[
+            "rounded-xl border p-5 md:p-6 transition-all duration-200 ease-out active:translate-y-0 active:shadow-none",
+            "hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(16,24,40,0.08)]",
+            item.featured
+              ? "border-primary/30 bg-primary/5 sm:col-span-2"
+              : "border-gray-300 bg-white active:bg-gray-50",
+          ]}
+        >
+          <div class="flex items-start gap-3">
+            <div class="mt-0.5 h-8 w-8 shrink-0 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+              {item.icon === "package" && (
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m3 7 9-4 9 4-9 4-9-4Z" />
+                  <path d="M3 7v10l9 4 9-4V7" />
+                  <path d="M12 11v10" />
+                </svg>
+              )}
+              {item.icon === "shield" && (
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 3 5 6v6c0 5 3.4 8 7 9 3.6-1 7-4 7-9V6l-7-3Z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              )}
+              {item.icon === "cut" && (
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="6" cy="6" r="3" />
+                  <circle cx="6" cy="18" r="3" />
+                  <path d="M20 4 8.5 15.5" />
+                  <path d="m14 14 6 6" />
+                </svg>
+              )}
+              {item.icon === "warehouse" && (
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m3 10 9-7 9 7" />
+                  <path d="M5 10v10h14V10" />
+                  <path d="M10 20v-6h4v6" />
+                </svg>
+              )}
+              {item.icon === "expert" && (
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21a8 8 0 0 1 16 0" />
+                  <path d="m17 13 2 2 3-3" />
+                </svg>
+              )}
+            </div>
+
+            <div class="min-w-0">
+              {item.badge && (
+                <p class="mb-1 inline-flex rounded-full bg-primary/15 px-2 py-0.5 text-[11px] font-medium leading-none text-primary">
+                  {item.badge}
+                </p>
+              )}
+              <p class="font-semibold text-[20px] leading-[1.2] text-text-primary mb-2 tracking-[-0.01em]">{item.title}</p>
+              <p class="text-base leading-[1.45] text-text-secondary">{item.desc}</p>
+            </div>
+          </div>
+        </article>
       ))}
     </div>
 
