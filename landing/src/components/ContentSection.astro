@@ -1,3 +1,7 @@
+---
+import { site } from "../data/site";
+---
+
 <section class="py-4 md:py-6">
   <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
     <!-- Video placeholder -->
@@ -21,7 +25,7 @@
         Рассчитайте стоимость вашей крыши за&nbsp;15&nbsp;минут
       </h2>
       <p class="type-caption text-text-secondary mb-3 text-center">
-        Оставьте контакты&nbsp;&mdash; менеджер позвонит, уточнит параметры и&nbsp;зафиксирует цену на&nbsp;<span class="underline decoration-current underline-offset-2">апрель&nbsp;2026</span>.
+        Оставьте контакты&nbsp;&mdash; менеджер позвонит, уточнит параметры и&nbsp;зафиксирует цену на&nbsp;<span class="underline decoration-current underline-offset-2" set:html={site.promo.dateLabelHtml} />.
       </p>
       <form action="#" method="POST" class="space-y-3">
         <input

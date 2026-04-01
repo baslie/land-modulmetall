@@ -7,6 +7,11 @@ export const site = {
   contact: {
     phone: "+7 (4012) 99 40 40",
     phoneHref: "tel:+74012994040",
+    addressHtml:
+      "ул.&nbsp;Калининградская,&nbsp;2Е, Большое&nbsp;Исаково, Калининградская&nbsp;обл.",
+  },
+  promo: {
+    dateLabelHtml: "апрель&nbsp;2026",
   },
   meta: {
     defaultTitle: "ЭБИС — модульная металлочерепица в\u00A0Калининграде",

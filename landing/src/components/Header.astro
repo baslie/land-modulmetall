@@ -1,6 +1,7 @@
 ---
 import logo from "../assets/ebis-logo.svg";
 import { site } from "../data/site";
+import LocationBadge from "./LocationBadge.astro";
 ---
 
 <header class="bg-white">
@@ -12,14 +13,7 @@ import { site } from "../data/site";
       </span>
     </a>
     <div class="flex items-center gap-4">
-      <div class="hidden lg:inline-flex items-baseline gap-1.5 bg-gray-100 rounded-lg px-3 py-1.5 type-caption text-text-secondary leading-snug">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 shrink-0 text-text-muted translate-y-[1px]" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-        </svg>
-        <span class="text-right whitespace-nowrap">
-          ул.&nbsp;Калининградская,&nbsp;2Е, Большое&nbsp;Исаково, Калининградская&nbsp;обл.
-        </span>
-      </div>
+      <LocationBadge class="hidden lg:inline-flex" />
       <a
         href={site.contact.phoneHref}
         class="border border-text-primary rounded-btn text-text-primary type-caption font-medium px-4 py-1.5 hover:border-primary hover:text-primary transition-colors duration-300"
