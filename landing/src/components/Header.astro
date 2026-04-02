@@ -13,7 +13,9 @@ import LocationBadge from "./LocationBadge.astro";
       </span>
     </a>
     <div class="flex items-center gap-4">
-      <LocationBadge class="hidden lg:inline-flex" />
+      <div class="hidden lg:block">
+        <LocationBadge />
+      </div>
       <a
         href={site.contact.phoneHref}
         class="border border-text-primary rounded-btn text-text-primary type-caption font-medium px-4 py-1.5 hover:border-primary hover:text-primary transition-colors duration-300"

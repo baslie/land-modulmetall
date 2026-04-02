@@ -3,20 +3,18 @@ import { site } from "../data/site";
 ---
 
 <section class="py-4 md:py-6">
-  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
-    <!-- Video placeholder -->
-    <div class="aspect-video bg-gray-200 rounded-lg flex items-center justify-center flex-col gap-4">
-      <svg
-        class="w-16 h-16 text-text-muted"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.5"
-        viewBox="0 0 24 24"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none" />
-      </svg>
-      <span class="text-text-muted type-caption">Видео о&nbsp;компании</span>
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 lg:gap-8 items-start">
+    <!-- Boomstream vertical video -->
+    <div class="w-full max-w-[360px] mx-auto lg:mx-0">
+      <div class="aspect-[9/16] rounded-lg overflow-hidden bg-gray-200">
+        <script src="https://play.boomstream.com/A4neJYiB/config.jsonp?autoplay=1" async></script>
+        <script src="https://play.boomstream.com/assets/javascripts/biframesdk.js?v=1.1.1" async></script>
+        <span
+          data-boomstream-code="A4neJYiB"
+          data-boomstream-mode="adaptive"
+          data-boomstream-use-fullscreen-mode="0"
+        ></span>
+      </div>
     </div>
 
     <!-- Lead form card -->
