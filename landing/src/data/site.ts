@@ -1,11 +1,11 @@
 export const site = {
   company: {
-    legalName: "ООО «ЭБИС»",
+    legalName: "ООО\u00A0«ЭБИС»",
     inn: "3905601123",
     ogrn: "1083925006483",
   },
   contact: {
-    phone: "+7 (4012) 99 40 40",
+    phone: "+7\u00A0(4012) 99\u00A040\u00A040",
     phoneHref: "tel:+74012994040",
     addressHtml:
       "ул.&nbsp;Калининградская,&nbsp;2Е, Большое&nbsp;Исаково, Калининградская&nbsp;обл.",
