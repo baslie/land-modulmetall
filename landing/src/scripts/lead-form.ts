@@ -5,7 +5,7 @@
  * Submissions are delivered via email through web3forms.com.
  */
 
-const WEB3FORMS_KEY = '8e681514-70cb-47a2-a899-d3301d73a9c0';
+const WEB3FORMS_KEY = 'ea2fcc2f-d26f-47b3-879a-f2f317c7a6bb';
 
 // UTM: prefer current URL query string, fall back to localStorage
 const currentQs = window.location.search;
