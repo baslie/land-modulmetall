@@ -1,13 +1,11 @@
 /**
- * Lead form → Telegram bot handler.
+ * Lead form → Web3Forms handler.
  *
  * Static site (Astro SSG) on GitHub Pages — no server runtime.
- * Bot token is scoped to sendMessage only. Risk is limited to spam.
+ * Submissions are delivered via email through web3forms.com.
  */
 
-const BOT_TOKEN = '8679984493:AAHf5dxUO6ec49IxTwWDy6c54mhXFfH6gCo';
-const CHAT_ID = '-5057763299';
-const TELEGRAM_HANDLE = '@marketer_for_business';
+const WEB3FORMS_KEY = '8e681514-70cb-47a2-a899-d3301d73a9c0';
 
 // UTM: prefer current URL query string, fall back to localStorage
 const currentQs = window.location.search;
@@ -85,39 +83,32 @@ if (form) {
     btn.disabled = true;
 
     const isResolved = (v: string | null) => v && !v.includes('{') && !v.includes('}');
-    const get = (k: string) => {
-      const v = urlParams.get(k);
-      return isResolved(v) ? v : null;
+
+    const payload: Record<string, string> = {
+      access_key: WEB3FORMS_KEY,
+      subject: 'Новая заявка (МодульМеталл)',
+      from_name: 'МодульМеталл',
+      botcheck: '',
+      name,
+      phone,
     };
+    if (comment) payload.comment = comment;
+    payload.landing_page = window.location.pathname;
 
-    let text = `📩 <b>Новая заявка (МодульМеталл)</b>\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}`;
-    if (comment) {
-      text += `\n📝 Комментарий: ${comment}`;
-    }
-    text += `\n\n🔗 ${window.location.pathname}`;
-
-    const source = get('utm_source');
-    const medium = get('utm_medium');
-
-    if (source) text += `\n📊 ${source}${medium ? ' / ' + medium : ''}`;
-
-    const shown = new Set(['utm_source', 'utm_medium']);
     for (const [key, raw] of urlParams) {
-      if (shown.has(key)) continue;
       if (!isResolved(raw)) continue;
-      text += `\n🏷 ${key}: ${raw}`;
+      payload[key] = raw;
     }
-
-    if (utmSearch) text += `\n\n🔗 ${utmLandingPath}${utmSearch}`;
+    if (utmSearch) payload.landing_url = utmLandingPath + utmSearch;
 
     try {
-      const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML' }),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
       });
-
-      if (!res.ok) throw new Error('Telegram API error');
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || 'Web3Forms error');
 
       localStorage.removeItem('mm_utm');
       if (typeof window.ym === 'function') {
@@ -132,7 +123,7 @@ if (form) {
       if (!form.querySelector('.lead-error')) {
         const err = document.createElement('p');
         err.className = 'lead-error text-red-600 type-caption text-center mt-2';
-        err.textContent = `Не\u00A0удалось отправить. Позвоните нам: +7\u00A0(4012) 99\u00A040\u00A040 или напишите в\u00A0Telegram: ${TELEGRAM_HANDLE}`;
+        err.textContent = `Не\u00A0удалось отправить. Позвоните нам: +7\u00A0(4012) 99\u00A040\u00A040`;
         form.appendChild(err);
       }
     }
